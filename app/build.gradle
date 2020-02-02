@@ -1,0 +1,64 @@
+/*
+ * Created by Mohamed Ibrahim N
+ * Created on : 17/11/17 5:12 PM
+ * File name : build.gradle
+ * Last modified by : Mohamed Ibrahim N
+ * Last modified on : 17/11/17 4:53 PM
+ * Project : MusicApp
+ * Organization : FreeLancer trinhvanbien
+ * Copyright (c) 2017. All rights reserved.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "in.tr.musicapp"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:28'
+    implementation 'com.android.support:exifinterface:28.1.0'
+    implementation 'com.android.support:animated-vector-drawable:28.1.0'
+    implementation 'com.android.support:design:28'
+    implementation 'com.android.support:recyclerview-v7:28'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'  //もともと "1.0.2"
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.8'     // :r2.5.4
+    implementation 'com.android.support:support-v4:28'
+    implementation 'com.android.support:support-vector-drawable:28'
+    implementation 'yogesh.firzen:FilesLister:1.0.1.g'
+    implementation 'yogesh.firzen:MukkiyaSevaigal:1.0.6'
+    implementation 'com.facebook.android:audience-network-sdk:5.6.0'
+    implementation 'com.dropbox.core:dropbox-core-sdk:3.1.3'
+    testImplementation 'junit:junit:4.13'
+    implementation 'com.android.support:multidex:1.0.3'
+
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:exifinterface:26.1.0'
+    }
+}
